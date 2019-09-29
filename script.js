@@ -78,7 +78,7 @@ function swapFruit(num1, num2) {
 function refreshBroad(levelNum) { //sample function 1 - for function button 
     if(progress-2 < 0) setStatusText("Not encough moves to refresh broad!");
     else {
-        progress-=2; 
+        progress-=2; startPlay = true;
         setProgressBar(progress, levelNum);
         for (i = 0; i < grid_height; i++) {
             for (j = 0; j < grid_width; j++) {

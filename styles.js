@@ -56,6 +56,10 @@ function setButtonText(i, j, text) {
 
 function createProgressBar(num) {
     var progessRow = createRow("progress");
+    if(grid.offsetWidth <= 576) w = grid.offsetWidth + "px";
+        else w = (grid.offsetWidth-window.innerWidth*3/7) + "px";
+        
+    progessRow.style.width = w;
     progress = num;
     var bar = document.createElement("div");
     bar.className = "progress-bar progress-bar-striped bg-danger progress-bar-animated";
@@ -63,6 +67,7 @@ function createProgressBar(num) {
     bar.style.width = "100%";
     bar.innerHTML = num + " Moves";
     bar.id = "bar";
+    
     progessRow.appendChild(bar);
     return progessRow;
 }

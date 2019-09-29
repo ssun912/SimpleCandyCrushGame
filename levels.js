@@ -3,15 +3,15 @@ var levelNum;
 var totalLevelNum = 5;
 
 function setUpAllLevels() {
-    var level1 = createLevel(6, 6, 3, 6, 1000);
+    var level1 = createLevel(6, 6, 4, 6, 1000);
     levelList[1] = level1; 
-    var level2 = createLevel(7, 7, 5, 7, 2000);
+    var level2 = createLevel(7, 7, 6, 7, 2000);
     levelList[2] = level2;
-    var level3 = createLevel(8, 8, 6, 8, 3000);
+    var level3 = createLevel(8, 8, 8, 8, 3000);
     levelList[3] = level3;
-    var level4 = createLevel(8, 8, 10, 9, 4000);
+    var level4 = createLevel(8, 8, 12, 9, 4000);
     levelList[4] = level4;
-    var level5 = createLevel(8, 8, 15, 10, 5000);
+    var level5 = createLevel(8, 8, 16, 10, 5000);
     levelList[5] = level5;
 }
 
