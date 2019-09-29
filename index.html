@@ -1,10 +1,15 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <meta charset="utf-8">
-    <title> Game </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <title>Game</title>    
     <script src="script.js">    </script>    
     <script src="styles.js">     </script>
     <script src="levels.js">    </script>       
@@ -15,30 +20,61 @@
         <p id = "infoText"></p>
         <p id = "infoTextSmall"></p>
     </center>
-
+    
 </head>
 
 <body onload = "setup();">
-    <div id = "head" class="container bg-gradient-info">     </div>
-    <div id = "grid" class="container bg-gradient-dark">
-        <!-- This is where the button matrix will be -->
-        
-    </div> <!-- end of body -->
-    
     <center>
-        
+    <div id = "messages" class="container"></div>
+    <div id = "progressbar" class="container"></div>
+    <div id = "grid" class="container"></div>    
     <div id = "functionButtons"></div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="instrBroad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div align="left" class="modal-body">
+                        <p>This is a simplified Candy Crush/ Bejeweled like game. 
+                            Line up three or more in a row/ column to earn points.</p>
+                        <p>Each fruit worth 100 points. 
+                            The more fruits you match in a row/ column, the more points you earn.</p>
+                        <p>Note that you can keep moving until there are matches.</p>
+                        <p>You may also choose to "Refresh Broad" if you believe that there are no more moves. 
+                            "Refresh Broad" will cost 2 moves."</p>
+                        <p>If you finish the level with less moves, you will gain extra points. 
+                            Please use your moves wisely.</p>
+                        <p>There are total 5 levels. Each level has their own target scores and move limits.</p>
+                        <p>GOOD LUCK and HAVE FUN!!!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+
     <div> <br><br> Credits: <br>
         Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 
         and <a href="https://www.freepik.com/" title="Freepik">Freepik</a> 
         from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
         is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-            </div>
+    </div>
     <div> Other: <a href="https://giphy.com/gifs/theyetee-yetee-congratulations-neon-n5VaQoW39Z9S0" title="giphy"> Giphy.com </a></div>
-    <div>   
-        Background made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> <br><br><br> </div>
+    <div> Background made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> <br><br><br> </div>
     </center>
 
 </body>
+
+<script type="text/javascript">
+    $('#exampleModalCenter').modal
+</script>
     
 </html>

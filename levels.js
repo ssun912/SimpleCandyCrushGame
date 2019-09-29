@@ -19,21 +19,25 @@ function createLevel(w, h, m, n, s) {
     var levelObject = {
         width: w,
         height: h,
-        size: w*h, 
         moves: m,
         fruitNum: n,
-        passScore: s
+        passScore: s,
+        size: w*h
     }
     return levelObject;
 }
 
 function startLevel(i) {    
+    startPlay = false;
+    var bar = document.getElementById("progressbar");   
+    bar.innerHTML = "";
+    bar.appendChild(createProgressBar(levelList[i].moves));
+
     if(interval1 != null & interval2 !=null) {
         clearInterval(interval1);
         clearInterval(interval2);
     }
-
-    var headDiv = document.getElementById("head");    
+ 
     var grid = document.getElementById("grid");
     
     score = 0;    
@@ -41,9 +45,7 @@ function startLevel(i) {
     grid_width = levelList[i].width;
     grid_size = levelList[i].size;
 
-    headDiv.innerHTML = "";
     fillFunctionButtons(i);
-    headDiv.appendChild(fillProgressBar(levelList[i].moves));
 
     grid.innerHTML = "";
     grid = fillMatrix(i);
@@ -58,7 +60,7 @@ function levelClear(levelNum) {
     }    
     totalScore += score;    
 
-    document.getElementById("buttonInfo").disabled = true;
+    //document.getElementById("buttonInfo").disabled = true;
     document.getElementById("button2").disabled = true;
     document.getElementById("button3").disabled = true;
 

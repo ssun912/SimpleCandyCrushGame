@@ -33,14 +33,14 @@ function quickScan(levelNum) {
         for (k=0; k<grid_size-2; k++) {
             if (getFruitbyNum(k) == getFruitbyNum(k+1) && getFruitbyNum(k) == getFruitbyNum(k+2)) {
                 if(getRow(k) == getRow(k+1) && getRow(k) == getRow(k+2)) {            
-                    console.log("problem (horizontal) fruit = " + k + " " + getFruitbyNum(k));
+                    //console.log("problem (horizontal) fruit = " + k + " " + getFruitbyNum(k));
                     status = true;
                 }
             }    
         }
         for (k=0; k<grid_size-grid_width*2; k++) {
             if (getFruitbyNum(k) == getFruitbyNum(k+grid_width) && getFruitbyNum(k) == getFruitbyNum(k+grid_width*2)) {            
-                console.log("problem (vertical) fruit = " + k + " " + getFruitbyNum(k));
+                //console.log("problem (vertical) fruit = " + k + " " + getFruitbyNum(k));
                 status = true;
             }    
         }
@@ -75,7 +75,7 @@ function checkBroad(levelNum) {
         match3Map = {};
         var count = 0; keyI = 0; keyJ = 0;
 
-        console.log("Checking rows...");
+        //console.log("Checking rows...");
         for(i=0; i< grid_height; i++) {
             count = 0; keyI = 0; keyJ = 0;      // reset for each row check
             for(j=1; j< grid_width; j++) {
@@ -92,7 +92,7 @@ function checkBroad(levelNum) {
             }
         }     
         
-        console.log("Checking columns...");
+        //console.log("Checking columns...");
         for(j=0; j< grid_width; j++) {
             count = 0; keyI = 0; keyJ = 0;
             for(i=1; i< grid_height; i++) {
@@ -108,7 +108,8 @@ function checkBroad(levelNum) {
                 else count = 0;                
             }            
         }
-        for (var i in match3Map) console.log("Key is: " + i + " | Value is: " + match3Map[i].type + " | " + match3Map[i].direction + " | " + match3Map[i].consectiveNum);
+        for (var i in match3Map) 
+            console.log("Key is: " + i + " | Value is: " + match3Map[i].type + " | " + match3Map[i].direction + " | " + match3Map[i].consectiveNum);
         
         setTimeout(cleanBoard, 500, levelNum);    
         setTimeout(quickScan, 1000, levelNum); 
@@ -116,14 +117,16 @@ function checkBroad(levelNum) {
 
 
 function cleanBoard(levelNum) {
-    console.log("Cleaning board... ");
+    //console.log("Cleaning board... ");
     for (var k in match3Map) {
         var row = match3Map[k].rowNum;
         var col = match3Map[k].colNum;
         setFruit(row, col, "giphy");
-        score+=100;
-        if (match3Map[k].consectiveNum == 4) score+= 100;
-        if (match3Map[k].consectiveNum == 5) score+= 200;
+        if(startPlay) {
+            score+=100;
+            if (match3Map[k].consectiveNum == 4) score+= 100;
+            if (match3Map[k].consectiveNum == 5) score+= 200;    
+        }
         
         setStatusTextSmall(levelNum, score);
 

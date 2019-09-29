@@ -1,6 +1,8 @@
+startPlay = false;
+
 //============================ this is what's triggered when any button in the matrix is pressed ======================
 function buttonClicked(i, j, levelNum) { //this is where you should start
-
+    startPlay = true;
     setStatusText(getFruit(i,j) + " (" + i + ", " + j + ") pressed");
     clickHistory.push(i*grid_height + j);
     var img1 = document.getElementById("img_" + getRow(clickHistory[0]) + "_" + getColumn(clickHistory[0]));
@@ -12,7 +14,7 @@ function buttonClicked(i, j, levelNum) { //this is where you should start
 
         if (condition() == true)  {
             progress-=1;
-            setProgressBar("bar", "bg-danger", progress, levelNum);
+            setProgressBar(progress, levelNum);
             swapFruit(clickHistory[0], clickHistory[1]);
             setTimeout(quickScan, 200, levelNum);
         }

@@ -73,14 +73,13 @@ function swapFruit(num1, num2) {
 }
 
 
-
 // ==================================== Function Buttons ==========================================
 
 function refreshBroad(levelNum) { //sample function 1 - for function button 
     if(progress-2 < 0) setStatusText("Not encough moves to refresh broad!");
     else {
-        progress-=2;
-        setProgressBar("bar", "bg-danger", progress, levelNum);
+        progress-=2; startPlay = true;
+        setProgressBar(progress, levelNum);
         for (i = 0; i < grid_height; i++) {
             for (j = 0; j < grid_width; j++) {
                 setFruit(i, j, setRandomFruits(levelList[levelNum].fruitNum));
@@ -91,64 +90,10 @@ function refreshBroad(levelNum) { //sample function 1 - for function button
 }
 
 function cancelClick() {
-    var img=document.getElementById("img_" + getRow(clickHistory[0]) + "_" + getColumn(clickHistory[0]));
-    img.style.border = 'none'; 
-    clickHistory = [];
-    setStatusText("Move cancelled.");
+    if(clickHistory[0] != null) {
+        var img=document.getElementById("img_" + getRow(clickHistory[0]) + "_" + getColumn(clickHistory[0]));
+        img.style.border = 'none'; 
+        clickHistory = [];
+        setStatusText("Move cancelled.");
+    }    
 }
-
-function infoButton() {
-
-    var infoB = document.getElementById("buttonInfo");
-    infoB.className = "btn btn-light btn-lg";
-    infoB.innerHTML="";
-    infoB.appendChild(document.createTextNode("Resume"));
-    infoB.setAttribute("onclick", "resumeGame()");
-
-    var grid = document.getElementById("grid");
-
-    var instBroad = document.createElement("div");
-    instBroad.id = "instructionBroad";
-    instBroad.style.position = "relative";
-    instBroad.style.backgroundColor = "#ffffff";
-    instBroad.style.left = "10%";  
-    instBroad.style.top = "10%";
-    instBroad.style.position = "absolute";
-    
-    var newText = document.createElement("div");
-
-    var title1 = document.createElement("h2");
-    title1.appendChild(document.createTextNode("Instructions:"))
-    newText.appendChild(title1); 
-
-    var text = document.createElement("p");
-    text.innerText = "\nThis is a simplified Candy Crush/ Bejeweled like game. " +
-            "\nLine up three or more in a row/ column to earn points. " + 
-            "\nEach fruit worth 100 points. The more fruits you match in a row/ column, the more points you earn. " +
-            "\n\nNote that you can keep moving until there are matches." + 
-            "\nYou may also choose to \"Refresh Broad\" if you believe that there are no more moves. " + 
-            "\n\"Refresh Broad\" will cost 2 moves." +
-            "\n\nIf you finish the level with less moves, you will gain extra points. Please use your moves wisely." +
-            "\nThere are total 5 levels. Each level has their own target scores and move limits." +
-            "\n\nGOOD LUCK and HAVE FUN!!!" + 
-            "\n______________________________________________________________________"       
-    text.style.wordWrap = "break-word";        
-    newText.appendChild(text);
-    
-    newText.style.padding = "30px 30px 30px 30px";   
-    instBroad.appendChild(newText);
-    grid.appendChild(instBroad);
-}
-
-function resumeGame() {
-    var infoB = document.getElementById("buttonInfo");
-    infoB.className = "btn btn-info btn-lg";
-    infoB.innerHTML="";
-    infoB.appendChild(document.createTextNode("Info"));
-    infoB.setAttribute("onclick", "infoButton()");
-
-    var instBroad = document.getElementById("instructionBroad");
-    instBroad.remove();
-}
-
-
