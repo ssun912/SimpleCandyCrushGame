@@ -2,7 +2,7 @@ var interval1 = null;       // for some texts that have setInterval effects
 var interval2 = null;
 
 function setBackground() {
-    document.body.style.backgroundImage = "url('images/bg.png')";
+    document.body.style.backgroundImage = "url('images/freepik1.jpg')";
 }
 
 
@@ -114,6 +114,7 @@ function createDefaultFruit(i, j, levelNum) {
         else w = (grid.offsetWidth-window.innerWidth*3/7)/levelList[levelNum].width + "px";
     img.style.width = w;     
     img.style.height = w;
+    img.style.padding = "5px";
 
     //the text part
     var text = document.createElement("label");
@@ -144,8 +145,6 @@ function setRandomFruits(num) {
     else if (random < 9) return "watermelon";
     return "blueberries";
 }
-
-
 
 
 // ====================================== Level Transition =========================================

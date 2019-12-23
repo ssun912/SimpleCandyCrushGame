@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
-<head>    
+<head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -14,20 +15,21 @@
     <script src="levels.js">    </script>       
     <script src="rules.js">     </script>     
     <script src="play.js">     </script>
-    
-    <center> 
-        <p id = "infoText"></p>
-        <p id = "infoTextSmall"></p>
-    </center>
-    
 </head>
 
 <body onload = "setup();">
     <center>
-    <div id = "messages" class="container"></div>
-    <div id = "progressbar" class="container"></div>
-    <div id = "grid" class="container"></div>    
-    <div id = "functionButtons" class="container""></div>
+
+        <div class="card-transparent" style="width: 500px;">
+            <div class="card-block" style="background-color: rgba(245, 245, 245, 0.5); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); padding: 27px;">            
+                    <p id = "infoText"></p>
+                    <p id = "infoTextSmall"></p>
+                    <div id = "messages" class="container"></div>
+                    <div id = "progressbar" class="container"></div>
+                    <div id = "grid" class="container"></div>    
+                    <div id = "functionButtons" class="row justify-content-center"></div>                
+            </div>
+        </div>
     
     <!-- Modal -->
     <div class="modal fade" id="instrBroad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -56,18 +58,20 @@
         </div>
     </div>
 
+    <div class="card-transparent" style="width: 100%;">
+            <div class="card-block" style="text-align: center; background-color: rgba(245, 245, 245, 0.2); padding: 12px;">            
+                    <div class="card-header"><br>Credits:</div>
+                    <div>Background made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> 
+                        | Graphics made by <a href="https://giphy.com/gifs/theyetee-yetee-congratulations-neon-n5VaQoW39Z9S0" title="giphy"> Giphy.com </a><br>
+                        Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 
+                        and <a href="https://www.freepik.com/" title="Freepik">Freepik</a> 
+                        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+                        <br></div>            
+            </div>
+        </div>
+    
     
 
-
-
-    <div> <br><br> Credits: <br>
-        Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> 
-        and <a href="https://www.freepik.com/" title="Freepik">Freepik</a> 
-        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> 
-        is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-    </div>
-    <div> Other: <a href="https://giphy.com/gifs/theyetee-yetee-congratulations-neon-n5VaQoW39Z9S0" title="giphy"> Giphy.com </a></div>
-    <div> Background made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> <br><br><br> </div>
     </center>
 
 </body>
