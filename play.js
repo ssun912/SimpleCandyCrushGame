@@ -1,6 +1,6 @@
 startPlay = false;
 
-function buttonClicked(i, j, levelNum) { //this is where you should start
+function buttonClicked(i, j, levelNum) {
     startPlay = true;
     setStatusText(getFruit(i,j) + " (" + i + ", " + j + ") pressed");
     clickHistory.push(i*grid_height + j);
