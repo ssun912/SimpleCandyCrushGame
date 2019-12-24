@@ -54,7 +54,7 @@ function startLevel(i) {
 }
 
 function levelClear(levelNum) {    
-    if(progress > 0) {              // bonus points for remaining moves
+    if(progress > 0) {   // bonus points for remaining moves
         score+=600*progress;
         setStatusTextSmall(levelNum, score, "Loading next level...");
     }    
