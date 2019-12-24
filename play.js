@@ -1,6 +1,5 @@
 startPlay = false;
 
-//============================ this is what's triggered when any button in the matrix is pressed ======================
 function buttonClicked(i, j, levelNum) { //this is where you should start
     startPlay = true;
     setStatusText(getFruit(i,j) + " (" + i + ", " + j + ") pressed");
